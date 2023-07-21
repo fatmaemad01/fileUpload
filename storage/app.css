@@ -1,0 +1,12 @@
+body {
+    background-image: url('./../images/2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover; /* Adjust to "contain" or other values for different behavior */
+    /* You can also add more properties like background-position if needed */
+    
+  }
+
+  button .btn {
+
+  }
+  

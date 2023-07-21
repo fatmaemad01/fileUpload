@@ -1,0 +1,55 @@
+body {
+  background-image: url('./../images/2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Style your custom file upload container */
+.custom-file-upload {
+  position: relative;
+  display: inline-block;
+  border: 1px solid #c6d3dd;
+  border-radius: 40px;
+  width: 100%;
+  padding: 6px;
+  height: 40px;
+  margin-top: 10px;
+  /* padding-bottom: 10px; */
+
+}
+
+/* Style the file input's label to look like a button */
+.custom-file-upload .btn {
+  cursor: pointer;
+}
+
+/* Optionally, you can style the file input's label to match your design */
+.custom-file-upload .btn {
+  background-color: #fcc31f;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.custom-file-upload .btn:hover {
+  background-color: #fcc31f;
+}
+
+#share {
+  margin-left: 8px;
+  margin-right: 8px;
+  color: #3391ee;
+  font-size: 20px;
+}
+
+ #share-text {
+  color: #6c757d;
+}
+
+/*
+#icon {
+  border: 1px solid #8f9aa3;
+  border-radius: 40px;
+} */
