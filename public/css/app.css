@@ -4,7 +4,6 @@ body {
   background-size: cover;
 }
 
-/* Style your custom file upload container */
 .custom-file-upload {
   position: relative;
   display: inline-block;
@@ -14,16 +13,12 @@ body {
   padding: 6px;
   height: 40px;
   margin-top: 10px;
-  /* padding-bottom: 10px; */
-
 }
 
-/* Style the file input's label to look like a button */
 .custom-file-upload .btn {
   cursor: pointer;
 }
 
-/* Optionally, you can style the file input's label to match your design */
 .custom-file-upload .btn {
   background-color: #fcc31f;
   color: white;
@@ -48,8 +43,8 @@ body {
   color: #6c757d;
 }
 
-/*
-#icon {
-  border: 1px solid #8f9aa3;
-  border-radius: 40px;
-} */
+
+.icons i {
+  color:  #3391ee;
+  font-size: 18px;
+}

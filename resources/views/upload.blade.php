@@ -22,7 +22,7 @@
                 <div class="form-floating custom-file-upload mt-0">
                     <label id="icon">
                         <div class="">
-                            <i class="fas fa-paperclip" id="share"></i>
+                            <i class="fas fa-folder-open" id="share"></i>
                             <label id="share-text" class="ps-2"> Chose Your File </label>
                         </div>
                     </label>
