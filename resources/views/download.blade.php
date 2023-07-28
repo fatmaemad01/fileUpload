@@ -6,15 +6,14 @@
             <form>
                 <div class="form-floating mb-3">
                     <h6 style="text-align: center;" class="mb-3">Copy Your Download Link </h6>
-                    <input class="form-control mb-2" value="{{ route('file.download',  $File->link) }}" readonly style="border-radius:40px">
+                    <input class="form-control mb-2" value="{{ $Link}}" readonly style="border-radius:40px">
                 </div>
-                <div class="mt-4 d-flex justify-content-between">
-                    <a href="{{ route('file.download',  $File->link) }}" class="btn btn-primary p-2" style="width: 50%; background-color:#fcc31f; color:black;border:none; border-radius: 40px;">
+                <div class="mt-4 d-flex justify-content-center">
+                    <a href="{{ $Link }}" class="btn btn-primary p-2" style="width: 50%; background-color:#fcc31f; color:black;border:none; border-radius: 40px;">
                         <h6 style="font-size:18px; font-weight:bold">Download</h6>
                     </a>
                     <div class="icons">
                         <a href="{{ route('file.create')}}" class="btn"><i class="fas fa-plus"></i></a>
-                        <a href="{{route('files.index')}}" class="btn ms-0"><i class="fas fa-eye"></i></a>
                     </div>
                 </div>
 

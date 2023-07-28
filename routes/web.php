@@ -25,6 +25,7 @@ Route::post('/upload', [FileController::class, 'upload'])
     ->name('file.upload');
 
 Route::get('/download/{Link:link}', [FileController::class, 'download'])
+    ->middleware('signed')
     ->name('file.download');
 
 Route::delete('/{file}', [FileController::class, 'destroy'])

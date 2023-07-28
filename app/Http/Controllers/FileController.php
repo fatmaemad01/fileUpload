@@ -6,6 +6,7 @@ use App\Models\File;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Requests\FileRequest;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Storage;
 
 class FileController extends Controller
@@ -35,9 +36,16 @@ class FileController extends Controller
 
         $request['filename'] = $file->getClientOriginalName();
         $validated['link'] = Str::random(8);
+
         $File = File::create($validated);
 
-        return view('download', compact('File'));
+        $Link = URL::SignedRoute('file.download',  $File->link); 
+
+
+        return view('download', [
+            'File' => $File ,
+            'Link' => $Link,
+        ]);
     }
 
     
