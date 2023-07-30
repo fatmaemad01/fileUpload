@@ -3,19 +3,28 @@
 namespace App\Http\Controllers;
 
 use App\Models\File;
+use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Requests\FileRequest;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class FileController extends Controller
 {
 
-    public function index()
+    public function index(Request $request , $id)
     {
-        $files = File::all();
-        return view('index', compact('files'));
+        if (Auth::id() == $id) {
+            $files = File::where('user_id', '=', $id)->get();
+            // dd($files);
+            return view('index', compact('files'));
+        } else {
+            abort(404);
+        }
+     
+
     }
 
     public function create()
@@ -36,19 +45,20 @@ class FileController extends Controller
 
         $request['filename'] = $file->getClientOriginalName();
         $validated['link'] = Str::random(8);
+        $validated['user_id'] = Auth::id();
 
         $File = File::create($validated);
 
-        $Link = URL::SignedRoute('file.download',  $File->link); 
+        $Link = URL::SignedRoute('file.download',  $File->link);
 
 
         return view('download', [
-            'File' => $File ,
+            'File' => $File,
             'Link' => $Link,
         ]);
     }
 
-    
+
     public function download($link)
     {
         $File = File::where('link', '=', $link)->first();
@@ -63,6 +73,6 @@ class FileController extends Controller
         if ($file->path) {
             Storage::delete($file->path);
         }
-        return redirect()->route('files.index');
+        return redirect()->route('files.index' , Auth::id());
     }
 }

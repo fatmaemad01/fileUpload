@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FileController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,11 +15,15 @@ use App\Http\Controllers\FileController;
 |
 */
 
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::get('/files', [FileController::class, 'index'])
+Route::get('/files/{id}', [FileController::class, 'index'])
+    ->middleware('auth')
     ->name('files.index');
 
-Route::get('/', [FileController::class, 'create'])
+Route::get('/upload', [FileController::class, 'create'])
     ->name('file.create');
 
 Route::post('/upload', [FileController::class, 'upload'])
@@ -30,3 +35,16 @@ Route::get('/download/{Link:link}', [FileController::class, 'download'])
 
 Route::delete('/{file}', [FileController::class, 'destroy'])
     ->name('file.destroy');
+
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__ . '/auth.php';

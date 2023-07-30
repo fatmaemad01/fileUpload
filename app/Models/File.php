@@ -10,7 +10,7 @@ class File extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name','path','link'];
+    protected $fillable = ['name','path','link','user_id'];
 
     // public static $disk = '';
 

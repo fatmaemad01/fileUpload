@@ -17,6 +17,10 @@ return new class extends Migration
             $table->string('path');
             $table->string('link');
             $table->string('message')->nullable();
+            $table->foreignId('user_id')
+                    ->nullable()
+                    ->constrained()
+                    ->cascadeOnDelete();
             $table->timestamps();
         });
     }

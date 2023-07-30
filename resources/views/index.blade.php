@@ -2,7 +2,7 @@
 
     <div class="col-1"></div>
     <div class="col-10">
-        <div class="card p-3 mt-3" style="position: relative; border-radius:40px; border:none; width:100% ">
+        <div class="card p-4 " style="position: relative; top: 120px; border-radius:40px; border:none">
             <h3 style="text-align: center;" class="mb-3">All File </h3>
             <table class="table table-striped">
                 <tr>
@@ -13,8 +13,7 @@
                 @foreach($files as $file)
                 <tr>
                     <td>{{$file->name}}</td>
-                    <td><a href=" {{URL::SignedRoute('file.download',  $file->link)}}">{{URL::SignedRoute('file.download',  $file->link)}}</a></td>
-                    <td>
+                    <td><a href=" {{URL::SignedRoute('file.download',  $file->link)}}">{{URL::SignedRoute('file.download',  $file->link)}}</a></td>                    <td>
                         <form action="{{route('file.destroy' , $file->id)}}" method="post">
                             @method('delete')
                             @csrf
