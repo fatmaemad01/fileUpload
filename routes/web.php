@@ -17,14 +17,12 @@ use App\Http\Controllers\ProfileController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('file.create');
 
 Route::get('/files/{id}', [FileController::class, 'index'])
     ->middleware('auth')
     ->name('files.index');
 
-Route::get('/upload', [FileController::class, 'create'])
-    ->name('file.create');
 
 Route::post('/upload', [FileController::class, 'upload'])
     ->name('file.upload');

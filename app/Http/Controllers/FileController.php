@@ -14,22 +14,17 @@ use Illuminate\Support\Facades\Storage;
 class FileController extends Controller
 {
 
-    public function index(Request $request , $id)
+    public function index($id)
     {
         if (Auth::id() == $id) {
             $files = File::where('user_id', '=', $id)->get();
             // dd($files);
-            return view('index', compact('files'));
+            return view('index', [
+                'files' => $files,
+            ]);
         } else {
             abort(404);
         }
-     
-
-    }
-
-    public function create()
-    {
-        return view('upload');
     }
 
 
@@ -73,6 +68,6 @@ class FileController extends Controller
         if ($file->path) {
             Storage::delete($file->path);
         }
-        return redirect()->route('files.index' , Auth::id());
+        return redirect()->route('files.index', Auth::id());
     }
 }
