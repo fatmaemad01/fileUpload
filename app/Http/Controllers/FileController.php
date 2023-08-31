@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\FileDownload;
 use App\Models\File;
 use App\Models\User;
 use Illuminate\Support\Str;
@@ -14,17 +15,20 @@ use Illuminate\Support\Facades\Storage;
 class FileController extends Controller
 {
 
-    public function index($id)
+    public function index(Request $request, User $user)
     {
-        if (Auth::id() == $id) {
-            $files = File::where('user_id', '=', $id)->get();
+        if (Auth::id()) {
+            $files = $user->files;
             // dd($files);
-            return view('index', [
-                'files' => $files,
-            ]);
+            return view('index', compact('files'));
         } else {
             abort(404);
         }
+    }
+
+    public function create()
+    {
+        return view('upload');
     }
 
 
@@ -58,7 +62,11 @@ class FileController extends Controller
     {
         $File = File::where('link', '=', $link)->first();
 
+        event(new FileDownload($File));
+        
         return Storage::download($File->path, $File->filename);
+        // return response()->file(storage_path('app/' . $File->path));
+
     }
 
 

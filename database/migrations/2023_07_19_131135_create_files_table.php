@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('path');
             $table->string('link');
             $table->string('message')->nullable();
+            $table->integer('total_download')->default(0);
             $table->foreignId('user_id')
                     ->nullable()
                     ->constrained()

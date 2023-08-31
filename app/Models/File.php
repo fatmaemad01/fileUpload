@@ -10,7 +10,7 @@ class File extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name','path','link','user_id'];
+    protected $fillable = ['name','path','link','user_id','total_download'];
 
     // public static $disk = '';
 
@@ -25,4 +25,13 @@ class File extends Model
         return $path;
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function logs()
+    {
+        return $this->hasMany(Log::class);
+    }
 }

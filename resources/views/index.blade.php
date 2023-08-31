@@ -3,7 +3,7 @@
     <div class="col-1"></div>
     <div class="col-10">
         <div class="card p-4 " style="position: relative; top: 120px; border-radius:40px; border:none">
-        <h2 style="text-align: center; color:#297583" class="mb-3"><b> You're File</b></h2>
+            <h3 style="text-align: center;" class="mb-3">All File </h3>
             <table class="table table-striped">
                 <tr>
                     <th>File Name</th>
