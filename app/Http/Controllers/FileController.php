@@ -17,20 +17,9 @@ class FileController extends Controller
 
     public function index(Request $request, User $user)
     {
-        if (Auth::id()) {
             $files = $user->files;
-            // dd($files);
-            return view('index', compact('files'));
-        } else {
-            abort(404);
-        }
+            return view('dashboard', compact('files'));
     }
-
-    public function create()
-    {
-        return view('upload');
-    }
-
 
     public function upload(FileRequest $request)
     {
@@ -50,10 +39,27 @@ class FileController extends Controller
 
         $Link = URL::SignedRoute('file.download',  $File->link);
 
+        return redirect()->route('file.show', $File->id);
+    }
 
-        return view('download', [
+    public function show(File $File)
+    {
+        $Link = URL::SignedRoute('file.download',  $File->link);
+
+        return view('show', [
             'File' => $File,
-            'Link' => $Link,
+            'Link' => $Link
+        ]);
+    }
+
+    public function downloadPage(File $File)
+    {
+        // dd($File);
+        $Link = URL::SignedRoute('file.download',  $File->link);
+
+        return view('download',[
+            'File' => $File,
+            'Link' => $Link
         ]);
     }
 
@@ -63,9 +69,8 @@ class FileController extends Controller
         $File = File::where('link', '=', $link)->first();
 
         event(new FileDownload($File));
-        
+
         return Storage::download($File->path, $File->filename);
-        // return response()->file(storage_path('app/' . $File->path));
 
     }
 

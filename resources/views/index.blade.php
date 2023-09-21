@@ -1,4 +1,4 @@
-<x-layout title="AllFiles">
+{{-- <x-layout title="AllFiles">
 
     <div class="col-1"></div>
     <div class="col-10">
@@ -33,4 +33,4 @@
     <div class="col-2"></div>
 
 
-</x-layout>
+</x-layout> --}}

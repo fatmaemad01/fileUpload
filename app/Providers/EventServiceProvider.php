@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Events\FileDownload;
 use App\Listeners\LogDetails;
+use App\Listeners\NotifyUser;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -21,7 +22,8 @@ class EventServiceProvider extends ServiceProvider
             SendEmailVerificationNotification::class,
         ],
         FileDownload::class => [
-            LogDetails::class
+            LogDetails::class,
+            NotifyUser::class
         ]
     ];
 

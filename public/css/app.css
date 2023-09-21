@@ -1,50 +1,106 @@
-body {
-  background-image: url('./../images/2.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
+.background {
+    background-image: url('./../images/8.jpg');
+    /* background-repeat: no-repeat; */
+    background-size: cover;
+    /* height: 80vh; */
+    /* margin-bottom: x; */
+}
+
+
+h3 {
+    color: #2d4170;
+    text-align: center;
+    font-weight: bold;
+}
+
+.primary {
+    width: 50%;
+    background-color: #2d4170;
+    color: #fff;
+    border: none;
+    font-weight: bold;
+    padding-top: 7px;
+    border-radius: 40px;
+}
+.secondary {
+    /* width: 50%; */
+    background-color: #ffbf00;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    font-weight: bold;
+    /* padding-top: 5px; */
+    height: 40px;
+    border-radius: 18px;
+}
+
+.nav-link{
+    margin-top: 20px !important;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+button .nav-link{
+    margin-top: 12px !important;
+}
+
+.nav-link:hover{
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    border-bottom: 2px solid #ffbf00 ;
+}
+.primary:hover {
+    width: 55%;
+    background-color: #5773a5;
+    color: #fff;
+    border: none;
+    padding-top: 7px;
+    border-radius: 40px;
 }
 
 .custom-file-upload {
-  position: relative;
-  display: inline-block;
-  border: 1px solid #c6d3dd;
-  border-radius: 40px;
-  width: 100%;
-  padding: 6px;
-  height: 40px;
-  margin-top: 10px;
+    position: relative;
+    display: inline-block;
+    border: 1px solid #c6d3dd;
+    border-radius: 40px;
+    width: 100%;
+    padding: 6px;
+    height: 40px;
+    margin-top: 10px;
 }
 
 .custom-file-upload .btn {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .custom-file-upload .btn {
-  background-color: #fcc31f;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 50%;
-  transition: background-color 0.3s ease;
+    background-color: #ffbf00;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
 }
 
 .custom-file-upload .btn:hover {
-  background-color: #fcc31f;
+    background-color: #ffbf00;
 }
 
 #share {
-  margin-left: 8px;
-  margin-right: 8px;
-  color: #3391ee;
-  font-size: 20px;
+    margin-left: 8px;
+    margin-right: 8px;
+    color: #ffbf00;
+    font-size: 20px;
 }
 
- #share-text {
-  color: #6c757d;
+#share-text {
+    color: #6c757d;
 }
 
 
 .icons i {
-  color:  #3391ee;
-  font-size: 18px;
+    color: #2d4170;
+    font-size: 18px;
 }
